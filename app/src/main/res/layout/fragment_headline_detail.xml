@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/headlineImageView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder"
+                android:visibility="@{headline.imageUrl != null ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{headline.title}"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{headline.description}"
+                android:visibility="@{headline.description != null ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:id="@+id/contentTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{headline.content}"
+                android:visibility="@{headline.content != null ? View.VISIBLE : View.GONE}" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="headline"
+            type="com.djr.newssphere.data.model.Headline" />
+    </data>
+
+</layout>

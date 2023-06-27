@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/headlinesFragment">
+
+    <fragment
+        android:id="@+id/headlinesFragment"
+        android:name="com.djr.newssphere.ui.fragments.HeadlinesFragment"
+        android:label="Headlines"
+        tools:layout="@layout/fragment_headlines">
+        <action
+            android:id="@+id/action_headlinesFragment_to_headlineDetailFragment"
+            app:destination="@id/headlineDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/headlineDetailFragment"
+        android:name="com.djr.newssphere.ui.fragments.HeadlineDetailFragment"
+        android:label="Headline Detail"
+        tools:layout="@layout/fragment_headline_detail">
+        <argument
+            android:name="headline"
+            app:argType="com.djr.newssphere.data.model.Headline" />
+    </fragment>
+
+</navigation>
+
