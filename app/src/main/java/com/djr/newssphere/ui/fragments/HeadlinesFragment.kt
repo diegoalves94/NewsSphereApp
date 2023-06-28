@@ -21,7 +21,7 @@ import com.djr.newssphere.ui.viewmodels.HeadlinesViewModelFactory
 
 
 class HeadlinesFragment : Fragment() {
-    private lateinit var binding: FragmentHeadlinesBinding
+    lateinit var binding: FragmentHeadlinesBinding
     private val viewModel: HeadlinesViewModel by viewModels {
         HeadlinesViewModelFactory(
             NewsRepository(RetrofitClient.create(), getHeadlineDao()),

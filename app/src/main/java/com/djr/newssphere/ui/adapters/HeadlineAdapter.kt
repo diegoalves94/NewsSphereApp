@@ -25,7 +25,7 @@ class HeadlineAdapter(private val onItemClick: (Headline) -> Unit) :
         holder.itemView.setOnClickListener { onItemClick(headline) }
     }
 
-    inner class HeadlineViewHolder(private val binding: ItemHeadlineBinding) :
+    class HeadlineViewHolder(val binding: ItemHeadlineBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(headline: Headline) {
@@ -39,7 +39,7 @@ class HeadlineAdapter(private val onItemClick: (Headline) -> Unit) :
         }
     }
 
-    private class HeadlineDiffCallback : DiffUtil.ItemCallback<Headline>() {
+    class HeadlineDiffCallback : DiffUtil.ItemCallback<Headline>() {
         override fun areItemsTheSame(oldItem: Headline, newItem: Headline): Boolean {
             return oldItem.title == newItem.title
         }

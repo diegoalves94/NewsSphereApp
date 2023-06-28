@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import com.djr.newssphere.auth.BiometricUtils.isBiometricSupported
 
 object BiometricUtils {
     private const val TAG = "BiometricUtils"
+
+    var biometricPromptInstance: BiometricPrompt? = null
+    var biometricManagerInstance: BiometricManager? = null
 
     fun showBiometricPrompt(activity: AppCompatActivity) {
         isBiometricSupported(activity).let {
@@ -39,7 +43,7 @@ object BiometricUtils {
         }
     }
 
-    private fun isBiometricSupported(activity: AppCompatActivity): Boolean {
+    fun isBiometricSupported(activity: AppCompatActivity): Boolean {
         val biometricManager = BiometricManager.from(activity)
         return when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK)) {
             BiometricManager.BIOMETRIC_SUCCESS -> {
